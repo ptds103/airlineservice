@@ -23,8 +23,7 @@ import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined
 import QuizIcon from "@mui/icons-material/Quiz";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import excellence from "../../images/excellence.jpg"
-const drawerWidth = 240;
+import longImage from "../../images/testjpg.jpg";
 
 const sideBar = () => {
   return (
@@ -33,7 +32,8 @@ const sideBar = () => {
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: "white",
+          // backgroundColor: "white",
+          backgroundImage: `url(${longImage})`,
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
@@ -55,13 +55,12 @@ const sideBar = () => {
               className="logoName"
               variant="h5"
               noWrap
-              component="a"
+              // component="a"
               href="/"
               sx={{
                 display: { display: "inline-flex" },
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                backgroundColor: "white",
                 color: "#154D8E",
                 textDecoration: "none",
               }}
@@ -74,10 +73,8 @@ const sideBar = () => {
       <Drawer
         variant="permanent"
         sx={{
-          width: drawerWidth,
-          flexShrink: 0,
           [`& .MuiDrawer-paper`]: {
-            width: drawerWidth,
+            width: 280,
             boxSizing: "border-box",
           },
         }}
@@ -108,26 +105,24 @@ const sideBar = () => {
           </List>
           <Divider />
           <List disablePadding>
-            {["Requesting Routes", "Purchase Aircrafts", "New Schedule"].map(
-              (text, index) => (
-                <ListItem key={text} disablePadding >
-                  <ListItemButton >
-                    <ListItemIcon >
-                      {index === 0 ? (
-                        <ConnectingAirportsOutlinedIcon />
-                      ) : index === 1 ? (
-                        <AirlinesOutlinedIcon />
-                      ) : (
-                        <FlightTakeoffOutlinedIcon />
-                      )}
-                    </ListItemIcon>
-                    <Link to={text} style={{ textDecoration: "none" }}>
-                      <ListItemText primary={text} />
-                    </Link>
-                  </ListItemButton>
-                </ListItem>
-              )
-            )}
+            {["Requesting Routes", "Purchase Aircrafts", "New Schedule"].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index === 0 ? (
+                      <ConnectingAirportsOutlinedIcon />
+                    ) : index === 1 ? (
+                      <AirlinesOutlinedIcon />
+                    ) : (
+                      <FlightTakeoffOutlinedIcon />
+                    )}
+                  </ListItemIcon>
+                  <Link to={text} style={{ textDecoration: "none" }}>
+                    <ListItemText primary={text} />
+                  </Link>
+                </ListItemButton>
+              </ListItem>
+            ))}
             <Card>
               <CardMedia
                 sx={{ mt: 6 }}
@@ -146,12 +141,7 @@ const sideBar = () => {
               />
             </Card>
             <Card>
-              <CardMedia
-                component="img"
-                height="100"
-                image={require("../../images/logo2.jpg")}
-                alt="logo"
-              />
+              <CardMedia component="img" height="100" image={require("../../images/logo2.jpg")} alt="logo" />
             </Card>
           </List>
         </Box>

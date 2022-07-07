@@ -1,0 +1,39 @@
+.outerBox {
+  padding: 24px 0px 24px 24px;
+  border: 1px solid #154d8e;
+}
+.showBox {
+  padding: 24px 24px 24px 24px;
+  margin-left: 400px;
+  border: 1px solid #154d8e;
+}
+.time {
+  padding: 24px 0px 24px 24px;
+  margin: 24px 28px 24px 15px;
+  border: 1px solid #154d8e;
+  columns: 2;
+  text-align: center;
+}
+.innerBox {
+  width: 96%;
+  margin: 16px 16px 16px 16px;
+  background-color: white;
+  border: 2px solid;
+  border-color: "#154D8E";
+}
+.firstColumn {
+  display: inline-flex;
+  width: 43.78%;
+  margin: 8px 0px 8px 8px;
+}
+.secondColumn {
+  display: inline-flex;
+  width: 24%;
+  margin: 8px 0px 8px 8px;
+}
+.thirdColumn {
+  text-align: right;
+  display: inline;
+  width: 28.57%;
+  margin: 8px 8px 8px 8px;
+}

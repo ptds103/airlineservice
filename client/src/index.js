@@ -8,10 +8,7 @@ import reducers from "./reducers";
 import App from "./App";
 import "./styles.css";
 import { BrowserRouter } from "react-router-dom";
-const store = configureStore(
-  { reducer: reducers },
-  compose(applyMiddleware(thunk))
-);
+const store = configureStore({ reducer: reducers }, compose(applyMiddleware(thunk)));
 
 const root = createRoot(document.getElementById("root"));
 root.render(

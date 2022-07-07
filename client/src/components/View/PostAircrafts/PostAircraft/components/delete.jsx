@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
-import { deleteAircraft } from "../../../../actions/aircrafts";
+import { deleteAircraft } from "../../../../../actions/aircrafts";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 const Delete = ({ post, setEditPage }) => {
   const dispatch = useDispatch();
@@ -10,25 +10,19 @@ const Delete = ({ post, setEditPage }) => {
     setEditPage(true);
   };
   return (
-    <Box>
+    <Box direction={"row"}>
       <Button
-        sx={{ justifyContent: "flex-start", width: 1 / 1.56 }}
+        sx={{ width: 1 / 4, mr: 35 }}
         size="large"
-        color="primary"
         onClick={() => {
           dispatch(deleteAircraft(post._id));
         }}
       >
-        <DeleteIcon fontSize="large" />
+        <DeleteIcon fontSize="large" sx={{ textAlign: "left" }} />
         Delete
       </Button>
-      <Button
-        sx={{ justifyContent: "flex-end", width: 1 / 3 }}
-        size="large"
-        color="primary"
-        onClick={onCLicked}
-      >
-        <ModeEditOutlineOutlinedIcon />
+      <Button sx={{ width: 1 / 4, ml: 35 }} size="large" onClick={onCLicked}>
+        <ModeEditOutlineOutlinedIcon fontSize="large" />
         EDIT
       </Button>
     </Box>

@@ -8,14 +8,13 @@ import "./App.css";
 import SideBar from "./components/NavBar/index";
 import PostRoutes from "./components/View/postRoutes/index";
 import PostAircrafts from "./components/View/PostAircrafts/index";
+import Schedules from "./components/View/schedules/index";
 import { Container } from "@mui/system";
 
 const App = () => {
   return (
-    
     <Container className="appContainer">
       <SideBar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Purchase%20Aircrafts" element={<AircraftForm />} />
@@ -23,10 +22,10 @@ const App = () => {
         <Route path="/New%20Schedule" element={<ScheduleForm />} />
         <Route path="/Routes" element={<PostRoutes />} />
         <Route path="/Aircrafts" element={<PostAircrafts />} />
+        <Route path="/Schedule" element={<Schedules />} />
+        <Route path="/Schedule/edit/:id" element={<Schedules />} />
       </Routes>
-
     </Container>
-
   );
 };
 

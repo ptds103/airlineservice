@@ -1,0 +1,15 @@
+.box1{
+    width: 97%;
+    padding: 16px 16px 16px 16px;
+
+    margin:6.8px;
+    margin-left: 14.5px;
+    /* margin-bottom: 12.8px; */
+    background-color: #F5F5F5;
+    color: #424242;
+    border: 1px solid;
+    border-color: black;
+    border-radius: 1;
+    font-size: 0.875rem;
+    font-weight: 700;
+}

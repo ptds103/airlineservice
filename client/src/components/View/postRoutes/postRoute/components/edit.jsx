@@ -12,9 +12,9 @@ import {
   TextField,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { updateFlightRoute } from "../../../../actions/flightRoutes";
-
-const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
+import { updateFlightRoute } from "../../../../../actions/flightRoutes";
+import "./edit.css";
+const EditTrue = ({ post, setEditPage }) => {
   const [flightRoute, setFlightRoute] = useState({
     departureNumber: "",
     arrivalNumber: "",
@@ -54,22 +54,9 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
     setEditPage(false);
   };
   return (
-    <Box
-      sx={{
-        width: 0.98,
-        p: 2,
-        m:1.6,
-        bgcolor: "grey.100",
-        color: "grey.800",
-        border: "1px solid",
-        borderColor: "grey.300",
-        borderRadius: 1,
-        fontSize: "0.875rem",
-        fontWeight: "700",
-      }}
-    >
+    <Box className="box1">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <Stack direction="row" spacing={32} >
+        <Stack direction="row" spacing={32}>
           <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
             <Input
               placeholder={post.departureNumber}
@@ -80,13 +67,9 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
                   departureNumber: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">KE</InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start">KE</InputAdornment>}
             />
-            <FormHelperText id="standard-weight-helper-text">
-              Departing Number
-            </FormHelperText>
+            <FormHelperText>Departing Number</FormHelperText>
           </FormControl>
           <FormControl sx={{ p: 1, width: "25ch" }} variant="standard">
             <Input
@@ -98,13 +81,9 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
                   departureAirport: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">IATA: </InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start">IATA: </InputAdornment>}
             />
-            <FormHelperText id="standard-weight-helper-text">
-              Departing Airport
-            </FormHelperText>
+            <FormHelperText id="standard-weight-helper-text">Departing Airport</FormHelperText>
           </FormControl>
 
           <FormControl variant="standard">
@@ -123,7 +102,7 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
               inputProps={{
                 step: 60,
               }}
-              sx={{ width: 150 ,p:1}}
+              sx={{ width: 150, p: 1 }}
             />
             <FormHelperText>Standard Time departure</FormHelperText>
           </FormControl>
@@ -139,17 +118,9 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
                   arrivalNumber: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">KE</InputAdornment>
-              }
-              aria-describedby="standard-weight-helper-text"
-              inputProps={{
-                "aria-label": "weight",
-              }}
+              startAdornment={<InputAdornment position="start">KE</InputAdornment>}
             />
-            <FormHelperText id="standard-weight-helper-text">
-              Arriving Number
-            </FormHelperText>
+            <FormHelperText>Arriving Number</FormHelperText>
           </FormControl>
 
           <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
@@ -162,17 +133,13 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
                   arrivalAirport: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">IATA: </InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start">IATA: </InputAdornment>}
               aria-describedby="standard-weight-helper-text"
               inputProps={{
                 "aria-label": "weight",
               }}
             />
-            <FormHelperText id="standard-weight-helper-text">
-              Arriving Airport
-            </FormHelperText>
+            <FormHelperText>Arriving Airport</FormHelperText>
           </FormControl>
 
           <FormControl variant="standard">
@@ -201,9 +168,7 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
             sx={{ m: 1, width: "25ch" }}
             name="type"
             variant="standard"
-            startAdornment={
-              <InputAdornment position="start">TYPE: </InputAdornment>
-            }
+            startAdornment={<InputAdornment position="start">TYPE: </InputAdornment>}
             value={flightRoute.type}
             onChange={(e) =>
               setFlightRoute({
@@ -220,29 +185,14 @@ const EditTrue = ({ post, currentId, setCurrentId, setEditPage }) => {
           </Select>
         </Stack>
         <Stack className="button" direction="row" spacing={42}>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-          >
+          <Button variant="contained" color="primary" size="large" type="submit">
             Submit
           </Button>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={clear}
-          >
+          <Button variant="contained" color="secondary" size="large" onClick={clear}>
             Clear
           </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={cancel}
-          >
+          <Button variant="contained" color="secondary" size="large" onClick={cancel}>
             Cancel
           </Button>
         </Stack>

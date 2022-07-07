@@ -11,7 +11,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { updateAircraft } from "../../../../actions/aircrafts";
+import { updateAircraft } from "../../../../../actions/aircrafts";
 
 const EditTrue = ({ post, setEditPage }) => {
   const [airplane, setAirplane] = useState({
@@ -75,13 +75,9 @@ const EditTrue = ({ post, setEditPage }) => {
                   tailNumber: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">HL</InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start">HL</InputAdornment>}
             />
-            <FormHelperText >
-              Tail Number
-            </FormHelperText>
+            <FormHelperText>Tail Number</FormHelperText>
           </FormControl>
 
           <FormControl sx={{ p: 1, width: "25ch" }} variant="standard">
@@ -94,13 +90,9 @@ const EditTrue = ({ post, setEditPage }) => {
                   aircraftCompany: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">: </InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start">: </InputAdornment>}
             />
-            <FormHelperText >
-              Company
-            </FormHelperText>
+            <FormHelperText>Company</FormHelperText>
           </FormControl>
 
           <FormControl sx={{ p: 1, width: "25ch" }} variant="standard">
@@ -113,23 +105,17 @@ const EditTrue = ({ post, setEditPage }) => {
                   generation: e.target.value,
                 })
               }
-              startAdornment={
-                <InputAdornment position="start">: </InputAdornment>
-              }
+              startAdornment={<InputAdornment position="start">: </InputAdornment>}
             />
-            <FormHelperText >
-              Generation
-            </FormHelperText>
+            <FormHelperText>Generation</FormHelperText>
           </FormControl>
         </Stack>
         <Stack direction="row" spacing={25}>
-        <Select
+          <Select
             sx={{ m: 1, width: "25ch" }}
             name="type"
             variant="standard"
-            startAdornment={
-              <InputAdornment position="start">TYPE: </InputAdornment>
-            }
+            startAdornment={<InputAdornment position="start">TYPE: </InputAdornment>}
             value={airplane.aircraftType}
             onChange={(e) =>
               setAirplane({
@@ -154,40 +140,20 @@ const EditTrue = ({ post, setEditPage }) => {
                   maxSeat: e.target.value,
                 })
               }
-              endAdornment={
-                <InputAdornment position="end">People</InputAdornment>
-              }
+              endAdornment={<InputAdornment position="end">People</InputAdornment>}
             />
           </FormControl>
         </Stack>
-        <Stack direction="row" spacing={4}>
-          
-        </Stack>
+        <Stack direction="row" spacing={4}></Stack>
         <Stack className="button" direction="row" spacing={40}>
-          <Button
-            className="buttonSubmit"
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-          >
+          <Button className="buttonSubmit" variant="contained" color="primary" size="large" type="submit">
             Submit
           </Button>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={clear}
-          >
+          <Button variant="contained" color="secondary" size="large" onClick={clear}>
             Clear
           </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={cancel}
-          >
+          <Button variant="contained" color="secondary" size="large" onClick={cancel}>
             Cancel
           </Button>
         </Stack>

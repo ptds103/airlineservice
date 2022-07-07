@@ -3,7 +3,8 @@ import * as api from "../api";
 export const getAircrafts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchAircrafts();
-    dispatch({ type: "FETCH_ALL", payload: data });
+
+    dispatch({ type: "FETCH_AIR", payload: data });
   } catch (error) {
     console.log(error.message);
   }

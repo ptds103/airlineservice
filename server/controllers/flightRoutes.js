@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import RequestFlightRoute from '../models/requestFlightRoutes.js';
+import RequestFlightRoute from '../models/requestFlightRoute.js';
 
 const router = express.Router();
 

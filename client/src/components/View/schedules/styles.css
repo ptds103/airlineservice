@@ -1,0 +1,13 @@
+.box{
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: grey.50;
+    color: black;
+    border: solid black;
+    border-width: 1px;
+    border-radius: 1px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    overflow: auto;
+}

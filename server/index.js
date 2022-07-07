@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 import cors from 'cors'
 import dotenv from 'dotenv';
 
-// import requestAircrafts from './routes/requestAircrafts.js';
+import newSchedules from './routes/newSchedules.js';
+import requestAircrafts from './routes/requestAircrafts.js';
 import flightRoutes from './routes/flightRoutes.js';
 const app = express();
 dotenv.config();
@@ -14,7 +15,8 @@ app.use(bodyParser.json({ limit: "30mb", extended: true}))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}))
 app.use(cors());
 
-// app.use('/requestAircrafts', requestAircrafts)
+app.use('/newSchedules', newSchedules)
+app.use('/requestAircrafts', requestAircrafts)
 app.use('/routes', flightRoutes) 
 
 const PORT = process.env.PORT || 5000;

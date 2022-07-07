@@ -1,36 +1,33 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Link } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
-import { deleteFlightRoute } from "../../../../actions/flightRoutes";
+import { deleteSchedule } from "../../../../../actions/schedules";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 const Delete = ({ post, setEditPage }) => {
   const dispatch = useDispatch();
   const onCLicked = () => {
-    setEditPage(true);
+    // setEditPage(true);
   };
   return (
     <Box>
       <Button
-        sx={{ justifyContent: "flex-start", width: 1 / 2.2 }}
+        sx={{ width: 1 / 4, mr: 35 }}
         size="large"
-        color="primary"
         onClick={() => {
-          dispatch(deleteFlightRoute(post._id));
+          dispatch(deleteSchedule(post._id));
         }}
       >
         <DeleteIcon fontSize="large" />
         Delete
       </Button>
-      <Button
-        sx={{ justifyContent: "flex-end", width: 1 / 2.2 }}
-        size="large"
-        color="primary"
-        onClick={onCLicked}
-      >
-        <ModeEditOutlineOutlinedIcon />
+      <Button sx={{ width: 1 / 4, ml: 35 }} size="large" onClick={onCLicked}>
+        <ModeEditOutlineOutlinedIcon fontSize="large" />
+        <Link to={'/edit/:id'} style={{ textDecoration: "none" }}>
         EDIT
-      </Button>
+
+        </Link>
+       </Button>
     </Box>
   );
 };
