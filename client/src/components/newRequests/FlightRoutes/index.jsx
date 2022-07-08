@@ -15,7 +15,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createFlightRoute, getFlightRoutes } from "../../../actions/flightRoutes";
-
 const Form = () => {
   const [flightRoute, setFlightRoute] = useState({
     departureNumber: "",
@@ -27,13 +26,13 @@ const Form = () => {
     type: "",
   });
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(getFlightRoutes());
+  }, [dispatch]);
   const deptRoutes = useSelector((state) => state.flightRoutes.map((e) => e.departureNumber));
   const arrvRoutes = useSelector((state) => state.flightRoutes.map((e) => e.arrivalNumber));
 
-  useEffect(() => {
-    dispatch(getFlightRoutes);
-  }, [dispatch]);
+ 
   const typeOfSeat = [{ value: "Passenger" }, { value: "Freighter" }];
   const clear = () => {
     setFlightRoute({
@@ -194,7 +193,7 @@ const Form = () => {
               Submit
             </Button>
           ) : (
-            <Button variant="contained" color="primary" size="large" type="submit">
+            <Button  href="/"  variant="contained" color="primary" size="large" type="submit">
               Submit
             </Button>
           )}

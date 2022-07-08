@@ -89,7 +89,7 @@ const Form = () => {
                 sx={{ "& .MuiSvgIcon-root": { fontSize: 40 } }}
               />
             }
-            label="Once booked with aircrafts, routes and schedules are unable to edit or delete until current schedule is deleted"
+            label="By checking this button, all responsibility is held on employee with current user. Binding routes to the dates will cause supervisor level to edit any of information binded at this moment."
           />
         </FormGroup>
         <Stack className="button" direction="row" spacing={105} sx={{ m: 5, p: 5, mx: 0 }}>

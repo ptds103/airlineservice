@@ -6,12 +6,12 @@ import PostAircraft from "./PostAircraft/index";
 import "./styles.css";
 const PostAircrafts = () => {
   const dispatch = useDispatch();
-
+  const aircrafts = useSelector((state) => state.aircrafts);
   useEffect(() => {
     dispatch(getAircrafts());
   }, [dispatch]);
 
-  const aircrafts = useSelector((state) => state.aircrafts);
+
   return !aircrafts.length ? (
     <CircularProgress />
   ) : (

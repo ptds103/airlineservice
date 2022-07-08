@@ -6,7 +6,7 @@ const Detail = ({ newSchedule, filterType, currentSchedule }) => {
     <Stack className="stack2">
       <Stack direction={"row"}>
         <Typography className="divider" component={"span"}>
-          Aircraft KE{currentSchedule.routeInfo.departureNumber}: {currentSchedule.routeInfo.type} <br/>
+          Aircraft KE{currentSchedule.routeInfo.departureNumber}: {currentSchedule.routeInfo.type} <br />
           booked on:
         </Typography>
         <Typography className="divider" component={"span"}>
@@ -30,7 +30,7 @@ const Detail = ({ newSchedule, filterType, currentSchedule }) => {
             {filterType.map((type, key) => (
               <Typography component={"div"} key={type.tailNumber + key}>
                 <Typography className="typoChange2">
-                  HL{type.tailNumber} 
+                  HL{type.tailNumber}
                   {type.aircraftType === "Passenger" && <> with Max Seat {type.maxSeat} </>}
                 </Typography>
               </Typography>

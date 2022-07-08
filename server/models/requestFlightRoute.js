@@ -1,12 +1,8 @@
 import mongoose from "mongoose";
 
 const flightRouteSchema = mongoose.Schema({
-  departureNumber: {
-    type: String,
-  },
-  arrivalNumber: {
-    type: String,
-  },
+  departureNumber: String,
+  arrivalNumber: String,
   departureAirport: String,
   arrivalAirport: String,
   departureTime: {

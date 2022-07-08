@@ -13,11 +13,12 @@ import "./index.css";
 const EditTrue = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const schedule = useSelector((state) => state.schedules);
   useEffect(() => {
     dispatch(getSchedules());
   }, [dispatch]);
 
-  const schedule = useSelector((state) => state.schedules);
+
 
   const [newSchedule, setNewSchedule] = useState({
     flightInfo: "",
@@ -68,7 +69,7 @@ const EditTrue = () => {
     setNewSchedule({
       ...newSchedule,
       flightInfo: randomizedTailNumber(0, newSchedule.scheduleDate.length),
-    });
+    }); 
   };
 
   const handleSubmit = async (e) => {

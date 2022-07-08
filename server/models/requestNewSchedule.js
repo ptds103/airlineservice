@@ -10,8 +10,7 @@ const scheduleSchema = mongoose.Schema({
         required: true
     },
     currentPassenger:{
-        type:Number,
-        default: 0,
+        type:[],
     },
     scheduleDate: {
         type: [],

@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.get("/", getFlightRoutes);
 router.post("/", createFlightRoute);
+router.get("/", getFlightRoute);
 router.patch("/:id", updateFlightRoute);
 router.delete("/:id", deleteFlightRoute);
 

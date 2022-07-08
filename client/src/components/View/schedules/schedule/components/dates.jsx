@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 
 const Dates = ({ post, setDates }) => {
-  console.log(post)
   return (
     <>
       <Button

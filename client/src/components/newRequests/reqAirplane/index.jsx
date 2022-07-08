@@ -13,7 +13,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createAircraft, getAircrafts } from "../../../actions/aircrafts";
-
 const Form = () => {
   const [purchaseAirplane, setpurchaseAirplane] = useState({
     tailNumber: "",
@@ -31,11 +30,12 @@ const Form = () => {
     },
   ];
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAircrafts());
+  }, [dispatch]);
   const tailNumb = useSelector((state) => state.aircrafts.map((e) => e.tailNumber));
 
-  useEffect(() => {
-    dispatch(getAircrafts);
-  }, [dispatch]);
+
   const clear = () => {
     setpurchaseAirplane({
       tailNumber: "",
@@ -143,7 +143,7 @@ const Form = () => {
               Submit
             </Button>
           ) : (
-            <Button className="buttonSubmit" variant="contained" color="primary" size="large" type="submit">
+            <Button href="/"  className="buttonSubmit" variant="contained" color="primary" size="large" type="submit">
               Submit
             </Button>
           )}

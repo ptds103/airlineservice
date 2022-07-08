@@ -1,19 +1,15 @@
 import React, { useEffect } from "react";
 import { Grid, Box, Typography, CircularProgress } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getFlightRoutes } from "../../../actions/flightRoutes";
-import { getSchedules } from "../../../actions/schedules";
-import { useSelector } from "react-redux";
 import PostRoute from "./postRoute/index";
 import "./styles.css";
 const PostRoutes = () => {
   const dispatch = useDispatch();
-
+  const flightRoutes = useSelector((state) => state.flightRoutes);
   useEffect(() => {
     dispatch(getFlightRoutes());
   }, [dispatch]);
-
-  const flightRoutes = useSelector((state) => state.flightRoutes);
 
   return !flightRoutes.length ? (
     <CircularProgress />

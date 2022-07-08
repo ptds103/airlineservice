@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { deleteSchedule } from "../../../../../actions/schedules";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import { useDispatch } from "react-redux";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 const Delete = ({ post }) => {
   const dispatch = useDispatch();
   return (
@@ -19,14 +19,13 @@ const Delete = ({ post }) => {
         <DeleteIcon fontSize="large" />
         Delete
       </Button>
-      <Button sx={{ width: 1 / 4, ml: 35 }} size="large" >
+      <Button sx={{ width: 1 / 4, ml: 35 }} size="large">
         <ModeEditOutlineOutlinedIcon fontSize="large" />
         <Link to={`/Schedule/edit/${post._id}`} style={{ textDecoration: "none" }}>
-        EDIT
+          EDIT
         </Link>
-       </Button>
+      </Button>
     </Box>
-    
   );
 };
 

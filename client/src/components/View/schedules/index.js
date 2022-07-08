@@ -5,14 +5,14 @@ import { getSchedules } from "../../../actions/schedules";
 import Schedule from "./schedule/index";
 import "./styles.css";
 const PostRoutes = () => {
+  const schedules = useSelector((state) => state.schedules);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getSchedules());
   }, [dispatch]);
 
-  const schedules = useSelector((state) => state.schedules);
-  return !schedules.length ? (
+  return schedules[0] === undefined ? (
     <CircularProgress />
   ) : (
     <Box className="box">
@@ -22,7 +22,7 @@ const PostRoutes = () => {
       {schedules
         .slice(0)
         .reverse()
-        .map((post) => (
+        .map((post, i) => (
           <Grid className="grid" key={post._id}>
             <Schedule post={post} />
           </Grid>

@@ -7,7 +7,6 @@ import General from "./components/generalInfo";
 const Post = ({ post }) => {
   const [editPage, setEditPage] = useState(false);
 
- 
   return (
     <Box className="outerBox">
       <General post={post} />
