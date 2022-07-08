@@ -1,0 +1,14 @@
+  .typoChange{
+    text-align: right;
+    /* font-weight: 700; */
+  }
+  .typoHead{
+    text-align: center;
+    /* font-weight: 700; */
+  }
+  .stack11 {
+    padding: 16px;
+    border: 2px solid;
+    border-radius: 1;
+    border-color: black;
+  }

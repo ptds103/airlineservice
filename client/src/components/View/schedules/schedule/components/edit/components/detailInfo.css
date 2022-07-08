@@ -1,0 +1,23 @@
+.typoChange2 {
+  text-align: center;
+  /* font-weight: 700; */
+}
+.typoHead {
+  text-align: center;
+  /* font-weight: 700; */
+}
+.typoHeads {
+  columns: 2;
+}
+.divider {
+  text-align: center;
+  width: 50%;
+  border-right: 1px solid black;
+}
+.time2 {
+  width: 50%;
+  padding-bottom: 20px;
+  border-right: 1px solid black;
+  columns: 2;
+  text-align: center;
+}

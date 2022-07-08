@@ -20,7 +20,6 @@ import MapIcon from "@mui/icons-material/Map";
 import ConnectingAirportsOutlinedIcon from "@mui/icons-material/ConnectingAirportsOutlined";
 import AirlinesOutlinedIcon from "@mui/icons-material/AirlinesOutlined";
 import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
-import QuizIcon from "@mui/icons-material/Quiz";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import longImage from "../../images/testjpg.jpg";
@@ -31,11 +30,7 @@ const sideBar = () => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{
-          // backgroundColor: "white",
-          backgroundImage: `url(${longImage})`,
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-        }}
+        sx={{ backgroundImage: `url(${longImage})`, zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Toolbar>
           <Typography
@@ -55,7 +50,6 @@ const sideBar = () => {
               className="logoName"
               variant="h5"
               noWrap
-              // component="a"
               href="/"
               sx={{
                 display: { display: "inline-flex" },
@@ -73,16 +67,13 @@ const sideBar = () => {
       <Drawer
         variant="permanent"
         sx={{
-          [`& .MuiDrawer-paper`]: {
-            width: 280,
-            boxSizing: "border-box",
-          },
+          [`& .MuiDrawer-paper`]: { width: 280, boxSizing: "border-box" },
         }}
       >
         <Toolbar className="here" />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {["Routes", "Aircrafts", "Schedule", "Faq"].map((text, index) => (
+            {["Routes", "Aircrafts", "Schedule"].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
@@ -90,10 +81,8 @@ const sideBar = () => {
                       <MapIcon />
                     ) : index === 1 ? (
                       <AirlinesOutlinedIcon />
-                    ) : index === 2 ? (
-                      <CalendarMonthIcon />
                     ) : (
-                      <QuizIcon />
+                      <CalendarMonthIcon />
                     )}
                   </ListItemIcon>
                   <Link to={text} style={{ textDecoration: "none" }}>
@@ -125,7 +114,7 @@ const sideBar = () => {
             ))}
             <Card>
               <CardMedia
-                sx={{ mt: 6 }}
+                sx={{ mt: 16 }}
                 component="img"
                 height="100"
                 image={require("../../images/care.jpg")}

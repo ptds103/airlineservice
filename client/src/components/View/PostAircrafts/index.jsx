@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid, Box, CircularProgress } from "@mui/material";
+import { Grid, Box, CircularProgress, Typography } from "@mui/material";
 import { getAircrafts } from "../../../actions/aircrafts";
 import { useSelector, useDispatch } from "react-redux";
 import PostAircraft from "./PostAircraft/index";
@@ -16,11 +16,17 @@ const PostAircrafts = () => {
     <CircularProgress />
   ) : (
     <Box className="box">
-      {aircrafts.map((post) => (
-        <Grid key={post._id}>
-          <PostAircraft post={post} />
-        </Grid>
-      ))}
+      <Typography className="typo1" variant="h4">
+        AIRCRAFTS LIST
+      </Typography>
+      {aircrafts
+        .slice(0)
+        .reverse()
+        .map((post) => (
+          <Grid key={post._id}>
+            <PostAircraft post={post} />
+          </Grid>
+        ))}
     </Box>
   );
 };

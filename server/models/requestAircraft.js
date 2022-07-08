@@ -2,18 +2,28 @@ import mongoose from "mongoose";
 
 const aircraftSchema = mongoose.Schema({
   tailNumber: {
-    type: String,
+    type: Number,
+    min: [1000, 'Must be 4-digits'],
+    max: [9999, 'Must be 4-digits'],
+    required: true
   },
-  aircraftCompany: String,
+  aircraftCompany: {
+    type: String,
+    required: true
+  },
   aircraftType: {
     type: String,
     enum: ["Passenger", "Freighter"],
+    required: true
   },
   generation: {
-    type: String,
+    type: Number,
+    min: [100, 'Must be 3-digits'],
+    max: [999, 'Must be 3-digits'],
+    required: true
   },
   maxSeat: {
-    type: String,
+    type: Number,
     min: 0,
   },
 });

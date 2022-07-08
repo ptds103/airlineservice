@@ -10,9 +10,9 @@ import {
   Stack,
 } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createAircraft } from "../../../actions/aircrafts";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createAircraft, getAircrafts } from "../../../actions/aircrafts";
 
 const Form = () => {
   const [purchaseAirplane, setpurchaseAirplane] = useState({
@@ -31,6 +31,11 @@ const Form = () => {
     },
   ];
   const dispatch = useDispatch();
+  const tailNumb = useSelector((state) => state.aircrafts.map((e) => e.tailNumber));
+
+  useEffect(() => {
+    dispatch(getAircrafts);
+  }, [dispatch]);
   const clear = () => {
     setpurchaseAirplane({
       tailNumber: "",
@@ -46,22 +51,11 @@ const Form = () => {
   };
 
   return (
-    <Paper
-      elevation={7}
-      sx={{
-        bgcolor: "grey.50",
-      }}
-    >
+    <Paper elevation={7} sx={{ bgcolor: "grey.50" }}>
       <Typography
         className="typo"
         variant="h4"
-        sx={{
-          textAlign: "center",
-          p: 5,
-          bgcolor: "#154D8E",
-          color: "grey.400",
-          fontWeight: "700",
-        }}
+        sx={{ textAlign: "center", p: 5, bgcolor: "#154D8E", color: "grey.400", fontWeight: "700" }}
       >
         PURCHASING AIRCRAFT
       </Typography>
@@ -69,13 +63,14 @@ const Form = () => {
         <Stack direction="row" sx={{ m: 4 }} spacing={25}>
           <FormControl sx={{ width: "25ch" }} variant="standard">
             <Input
-              value={purchaseAirplane.tailNumber}
               onChange={(e) =>
                 setpurchaseAirplane({
                   ...purchaseAirplane,
                   tailNumber: e.target.value,
                 })
               }
+              value={purchaseAirplane.tailNumber}
+              error={tailNumb.find((e) => Number(e) === Number(purchaseAirplane.tailNumber)) !== undefined}
               startAdornment={<InputAdornment position="start">HL</InputAdornment>}
             />
             <FormHelperText>Aircraft Number</FormHelperText>
@@ -104,7 +99,7 @@ const Form = () => {
                 })
               }
             />
-            <FormHelperText id="standard-weight-helper-text">Generation</FormHelperText>
+            <FormHelperText>Generation</FormHelperText>
           </FormControl>
         </Stack>
         <Stack direction="row" sx={{ m: 4 }} spacing={25}>
@@ -143,9 +138,15 @@ const Form = () => {
         </Stack>
 
         <Stack className="button" direction="row" spacing={96} sx={{ m: 5, p: 5, mx: 0 }}>
-          <Button className="buttonSubmit" variant="contained" color="primary" size="large" type="submit">
-            Submit
-          </Button>
+          {tailNumb.find((e) => Number(e) === Number(purchaseAirplane.tailNumber)) !== undefined ? (
+            <Button disabled variant="contained" color="primary" size="large" type="submit">
+              Submit
+            </Button>
+          ) : (
+            <Button className="buttonSubmit" variant="contained" color="primary" size="large" type="submit">
+              Submit
+            </Button>
+          )}
 
           <Button variant="contained" color="secondary" size="large" onClick={clear}>
             Clear

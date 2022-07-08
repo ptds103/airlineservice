@@ -17,7 +17,7 @@ const Dates = ({ post, setDates }) => {
       <Box className="time">
         {post.scheduleDate.map((e, i) => (
           <Typography component={"li"} key={i + e}>
-            {e.slice(0, 10)} PST on HL{post.flightInfo[i]}
+            {e.slice(0, 10)} on HL{post.flightInfo[i]}
           </Typography>
         ))}
       </Box>

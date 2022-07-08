@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const scheduleSchema = mongoose.Schema({
     flightInfo: {
         type: Object,
+        required: true
     },
-    routeInfo: Object,
-    currentWeight:{
-        type: Number,
-        default: 0,
+    routeInfo: {
+        type: Object,
+        required: true
     },
     currentPassenger:{
         type:Number,
@@ -15,6 +15,7 @@ const scheduleSchema = mongoose.Schema({
     },
     scheduleDate: {
         type: [],
+        required: true
     }
 })
 var newSchedules = mongoose.model('newSchedules', scheduleSchema)

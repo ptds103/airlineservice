@@ -3,6 +3,7 @@ import { Box, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
 import { deleteAircraft } from "../../../../../actions/aircrafts";
+
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 const Delete = ({ post, setEditPage }) => {
   const dispatch = useDispatch();

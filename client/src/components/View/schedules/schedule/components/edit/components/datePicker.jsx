@@ -4,7 +4,7 @@ import { DateRangePicker } from "react-date-range";
 import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-const DatePicker = ({ newSchedule, setNewSchedule }) => {
+const DatePicker = ({ newSchedule, setNewSchedule, filterType }) => {
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -19,7 +19,6 @@ const DatePicker = ({ newSchedule, setNewSchedule }) => {
     }
     return arr;
   };
-  
 
   const dateChange = (e) => {
     setNewSchedule({

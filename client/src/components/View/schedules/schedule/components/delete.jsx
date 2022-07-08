@@ -1,14 +1,12 @@
 import React from "react";
-import { Box, Button, Link } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useDispatch } from "react-redux";
 import { deleteSchedule } from "../../../../../actions/schedules";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
-const Delete = ({ post, setEditPage }) => {
+import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom'
+const Delete = ({ post }) => {
   const dispatch = useDispatch();
-  const onCLicked = () => {
-    // setEditPage(true);
-  };
   return (
     <Box>
       <Button
@@ -21,14 +19,14 @@ const Delete = ({ post, setEditPage }) => {
         <DeleteIcon fontSize="large" />
         Delete
       </Button>
-      <Button sx={{ width: 1 / 4, ml: 35 }} size="large" onClick={onCLicked}>
+      <Button sx={{ width: 1 / 4, ml: 35 }} size="large" >
         <ModeEditOutlineOutlinedIcon fontSize="large" />
-        <Link to={'/edit/:id'} style={{ textDecoration: "none" }}>
+        <Link to={`/Schedule/edit/${post._id}`} style={{ textDecoration: "none" }}>
         EDIT
-
         </Link>
        </Button>
     </Box>
+    
   );
 };
 

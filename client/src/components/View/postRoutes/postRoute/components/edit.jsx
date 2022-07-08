@@ -57,7 +57,7 @@ const EditTrue = ({ post, setEditPage }) => {
     <Box className="box1">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <Stack direction="row" spacing={32}>
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+          <FormControl sx={{ m: 1, width: "23.4ch" }} variant="standard">
             <Input
               placeholder={post.departureNumber}
               value={flightRoute.departureNumber}
@@ -73,8 +73,8 @@ const EditTrue = ({ post, setEditPage }) => {
           </FormControl>
           <FormControl sx={{ p: 1, width: "25ch" }} variant="standard">
             <Input
-              placeholder={post.departureAirport}
-              value={flightRoute.departureAirport}
+              placeholder={post.departureAirport.toUpperCase()}
+              value={flightRoute.departureAirport.toUpperCase()}
               onChange={(e) =>
                 setFlightRoute({
                   ...flightRoute,
@@ -83,7 +83,7 @@ const EditTrue = ({ post, setEditPage }) => {
               }
               startAdornment={<InputAdornment position="start">IATA: </InputAdornment>}
             />
-            <FormHelperText id="standard-weight-helper-text">Departing Airport</FormHelperText>
+            <FormHelperText>Departing Airport</FormHelperText>
           </FormControl>
 
           <FormControl variant="standard">
@@ -102,13 +102,13 @@ const EditTrue = ({ post, setEditPage }) => {
               inputProps={{
                 step: 60,
               }}
-              sx={{ width: 150, p: 1 }}
+              sx={{ width: 155, p: 1 }}
             />
             <FormHelperText>Standard Time departure</FormHelperText>
           </FormControl>
         </Stack>
         <Stack direction="row" spacing={32}>
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+          <FormControl sx={{ m: 1, width: "24ch" }} variant="standard">
             <Input
               placeholder={post.arrivalNumber}
               value={flightRoute.arrivalNumber}
@@ -123,10 +123,10 @@ const EditTrue = ({ post, setEditPage }) => {
             <FormHelperText>Arriving Number</FormHelperText>
           </FormControl>
 
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+          <FormControl sx={{ m: 1, width: "23ch" }} variant="standard">
             <Input
-              placeholder={post.arrivalAirport}
-              value={flightRoute.arrivalAirport}
+              placeholder={post.arrivalAirport.toUpperCase()}
+              value={flightRoute.arrivalAirport.toUpperCase()}
               onChange={(e) =>
                 setFlightRoute({
                   ...flightRoute,
@@ -134,10 +134,6 @@ const EditTrue = ({ post, setEditPage }) => {
                 })
               }
               startAdornment={<InputAdornment position="start">IATA: </InputAdornment>}
-              aria-describedby="standard-weight-helper-text"
-              inputProps={{
-                "aria-label": "weight",
-              }}
             />
             <FormHelperText>Arriving Airport</FormHelperText>
           </FormControl>
@@ -163,9 +159,9 @@ const EditTrue = ({ post, setEditPage }) => {
             <FormHelperText>Standard Time Arrivial</FormHelperText>
           </FormControl>
         </Stack>
-        <Stack direction="row" spacing={4}>
+        <Stack>
           <Select
-            sx={{ m: 1, width: "25ch" }}
+            sx={{ m: 1, width: "21ch" }}
             name="type"
             variant="standard"
             startAdornment={<InputAdornment position="start">TYPE: </InputAdornment>}
@@ -184,7 +180,7 @@ const EditTrue = ({ post, setEditPage }) => {
             ))}
           </Select>
         </Stack>
-        <Stack className="button" direction="row" spacing={42}>
+        <Stack className="button" direction="row" spacing={46}>
           <Button variant="contained" color="primary" size="large" type="submit">
             Submit
           </Button>

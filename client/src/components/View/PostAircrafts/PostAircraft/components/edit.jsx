@@ -82,15 +82,14 @@ const EditTrue = ({ post, setEditPage }) => {
 
           <FormControl sx={{ p: 1, width: "25ch" }} variant="standard">
             <Input
-              placeholder={post.aircraftCompany}
-              value={airplane.aircraftCompany}
+              placeholder={post.aircraftCompany.toUpperCase()}
+              value={airplane.aircraftCompany.toUpperCase()}
               onChange={(e) =>
                 setAirplane({
                   ...airplane,
                   aircraftCompany: e.target.value,
                 })
               }
-              startAdornment={<InputAdornment position="start">: </InputAdornment>}
             />
             <FormHelperText>Company</FormHelperText>
           </FormControl>
@@ -110,9 +109,9 @@ const EditTrue = ({ post, setEditPage }) => {
             <FormHelperText>Generation</FormHelperText>
           </FormControl>
         </Stack>
-        <Stack direction="row" spacing={25}>
+        <Stack direction="row" spacing={28.5}>
           <Select
-            sx={{ m: 1, width: "25ch" }}
+            sx={{ m: 1, width: "22ch" }}
             name="type"
             variant="standard"
             startAdornment={<InputAdornment position="start">TYPE: </InputAdornment>}
@@ -130,7 +129,7 @@ const EditTrue = ({ post, setEditPage }) => {
               </MenuItem>
             ))}
           </Select>
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+          <FormControl sx={{ m: 1, width: "24ch" }} variant="standard">
             <Input
               placeholder={post.maxSeat}
               value={airplane.maxSeat}
@@ -145,7 +144,7 @@ const EditTrue = ({ post, setEditPage }) => {
           </FormControl>
         </Stack>
         <Stack direction="row" spacing={4}></Stack>
-        <Stack className="button" direction="row" spacing={40}>
+        <Stack className="button" direction="row" spacing={46}>
           <Button className="buttonSubmit" variant="contained" color="primary" size="large" type="submit">
             Submit
           </Button>

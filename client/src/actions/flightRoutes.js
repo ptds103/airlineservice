@@ -1,6 +1,5 @@
 import * as api from "../api";
 
-//action creators
 export const getFlightRoutes = () => async (dispatch) => {
   try {
     const { data } = await api.fetchFlightRoutes();

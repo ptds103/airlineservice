@@ -12,8 +12,9 @@ import {
 } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createFlightRoute } from "../../../actions/flightRoutes";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createFlightRoute, getFlightRoutes } from "../../../actions/flightRoutes";
 
 const Form = () => {
   const [flightRoute, setFlightRoute] = useState({
@@ -27,14 +28,13 @@ const Form = () => {
   });
   const dispatch = useDispatch();
 
-  const typeOfSeat = [
-    {
-      value: "Passenger",
-    },
-    {
-      value: "Freighter",
-    },
-  ];
+  const deptRoutes = useSelector((state) => state.flightRoutes.map((e) => e.departureNumber));
+  const arrvRoutes = useSelector((state) => state.flightRoutes.map((e) => e.arrivalNumber));
+
+  useEffect(() => {
+    dispatch(getFlightRoutes);
+  }, [dispatch]);
+  const typeOfSeat = [{ value: "Passenger" }, { value: "Freighter" }];
   const clear = () => {
     setFlightRoute({
       departureNumber: "",
@@ -53,21 +53,10 @@ const Form = () => {
   };
 
   return (
-    <Paper
-      elevation={7}
-      sx={{
-        bgcolor: "grey.50",
-      }}
-    >
+    <Paper elevation={7} sx={{ bgcolor: "grey.50" }}>
       <Typography
         variant="h4"
-        sx={{
-          textAlign: "center",
-          p: 5,
-          bgcolor: "#154D8E",
-          color: "grey.400",
-          fontWeight: "700",
-        }}
+        sx={{ textAlign: "center", p: 5, bgcolor: "#154D8E", color: "grey.400", fontWeight: "700" }}
       >
         REQUESTING ROUTES
       </Typography>
@@ -75,13 +64,14 @@ const Form = () => {
         <Stack direction="row" sx={{ m: 4 }} spacing={25}>
           <FormControl sx={{ width: "25ch" }} variant="standard">
             <Input
-              value={flightRoute.departureNumber}
               onChange={(e) =>
                 setFlightRoute({
                   ...flightRoute,
                   departureNumber: e.target.value,
                 })
               }
+              value={flightRoute.departureNumber}
+              error={deptRoutes.find((e) => e === flightRoute.departureNumber) !== undefined}
               startAdornment={<InputAdornment position="start">KE</InputAdornment>}
             />
             <FormHelperText>Departing Number</FormHelperText>
@@ -97,7 +87,7 @@ const Form = () => {
                   departureAirport: e.target.value,
                 })
               }
-              startAdornment={<InputAdornment position="start">IATA</InputAdornment>}
+              startAdornment={<InputAdornment position="start">IATA: </InputAdornment>}
             />
             <FormHelperText>Departing Airport</FormHelperText>
           </FormControl>
@@ -107,7 +97,6 @@ const Form = () => {
               variant="standard"
               id="time"
               type="time"
-              placeholder="00:00"
               value={flightRoute.departureTime}
               onChange={(e) =>
                 setFlightRoute({
@@ -127,13 +116,14 @@ const Form = () => {
         <Stack direction="row" sx={{ m: 4 }} spacing={25}>
           <FormControl sx={{ width: "25ch" }} variant="standard">
             <Input
-              value={flightRoute.arrivalNumber}
               onChange={(e) =>
                 setFlightRoute({
                   ...flightRoute,
                   arrivalNumber: e.target.value,
                 })
               }
+              value={flightRoute.arrivalNumber}
+              error={arrvRoutes.find((e) => e === flightRoute.arrivalNumber) !== undefined}
               startAdornment={<InputAdornment position="start">KE </InputAdornment>}
             />
             <FormHelperText>Arriving Number</FormHelperText>
@@ -160,7 +150,7 @@ const Form = () => {
               id="time"
               type="time"
               placeholder="00:00"
-              value={flightRoute.Arrivial}
+              value={flightRoute.arrivalTime}
               onChange={(e) =>
                 setFlightRoute({
                   ...flightRoute,
@@ -199,9 +189,15 @@ const Form = () => {
         </Stack>
 
         <Stack className="button" direction="row" sx={{ m: 5, p: 5, mx: 0 }} spacing={96}>
-          <Button variant="contained" color="primary" size="large" type="submit">
-            Submit
-          </Button>
+          {deptRoutes.find((e) => e === flightRoute.departureNumber) !== undefined ? (
+            <Button disabled variant="contained" color="primary" size="large" type="submit">
+              Submit
+            </Button>
+          ) : (
+            <Button variant="contained" color="primary" size="large" type="submit">
+              Submit
+            </Button>
+          )}
 
           <Button variant="contained" color="secondary" size="large" onClick={clear}>
             Clear

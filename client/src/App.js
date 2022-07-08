@@ -9,6 +9,7 @@ import SideBar from "./components/NavBar/index";
 import PostRoutes from "./components/View/postRoutes/index";
 import PostAircrafts from "./components/View/PostAircrafts/index";
 import Schedules from "./components/View/schedules/index";
+import ScheduleEdit from "./components/View/schedules/schedule/components/edit";
 import { Container } from "@mui/system";
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
         <Route path="/Routes" element={<PostRoutes />} />
         <Route path="/Aircrafts" element={<PostAircrafts />} />
         <Route path="/Schedule" element={<Schedules />} />
-        <Route path="/Schedule/edit/:id" element={<Schedules />} />
+        <Route path="/Schedule/edit/:id" element={<ScheduleEdit />} />
       </Routes>
     </Container>
   );

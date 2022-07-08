@@ -8,8 +8,7 @@ import "./index.css";
 const Post = ({ post }) => {
   const [editPage, setEditPage] = useState(false);
   const [dates, setDates] = useState(false);
-  console.log(post, "this is single schedule");
-
+ 
   return (
     <Box className="outerBox">
       <General post={post} />
